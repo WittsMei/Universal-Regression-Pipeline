@@ -1,6 +1,6 @@
 # Universal-Regression-Pipeline
 
-''' Python
+```python
 
 class UniversalRegressionPipeline:
     # 1. Add 'drop_columns' as an optional argument
@@ -39,4 +39,4 @@ class UniversalRegressionPipeline:
         cols_to_drop = [self.target_column] + self.drop_columns
         X = df.drop(columns=cols_to_drop, errors='ignore')
         return self.best_model.predict(X)
-''' 
+```
