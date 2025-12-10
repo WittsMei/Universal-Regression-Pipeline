@@ -1,5 +1,17 @@
 # Universal-Regression-Pipeline
 
+### This is a "Mini-AutoML" (Automated Machine Learning) engine.
+- This class is not tied to sales or marketing data specifically. It is a general-purpose wrapper that can take any cleaned dataset, test 6 different algorithms, and pick the winner for any continuous target variable (house prices, temperature, stock values, etc.).
+
+### Why is it Generic?
+- The "Contestants" are Standard: The self.models dictionary contains the standard toolkit for regression. Whether you are predicting sales or temperature, Random Forest and Linear Regression are valid candidates.
+- The Logic is Universal:
+  - Cross-Validation (cv=5): It doesn't trust a single run; it verifies consistency.
+  - Metric (r2): R-squared is a standard way to measure regression success (1.0 is perfect, 0.0 is randomness) regardless of the data units.
+  - Workflow: Train $\rightarrow$ Evaluate $\rightarrow$ Pick Winner $\rightarrow$ Retrain. This is the "Golden Path" for almost all supervised learning.
+<img width="2048" height="2048" alt="image" src="https://github.com/user-attachments/assets/91cc7840-660a-4c62-9a17-0fa3d4f0a9ed" />
+
+
 ```python
 
 class UniversalRegressionPipeline:
