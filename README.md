@@ -11,6 +11,7 @@
   - Workflow: Train $\rightarrow$ Evaluate $\rightarrow$ Pick Winner $\rightarrow$ Retrain. This is the "Golden Path" for almost all supervised learning.
 <img width="2048" height="2048" alt="image" src="https://github.com/user-attachments/assets/91cc7840-660a-4c62-9a17-0fa3d4f0a9ed" />
 
+### Add a drop_cols argument so you can specify what to drop (or drop nothing) depending on the dataset.
 
 ```python
 
@@ -51,4 +52,15 @@ class UniversalRegressionPipeline:
         cols_to_drop = [self.target_column] + self.drop_columns
         X = df.drop(columns=cols_to_drop, errors='ignore')
         return self.best_model.predict(X)
+```
+
+
+### Now you can use it on any data:
+
+```python
+# Usage A: Your current UAE data
+uae_pipe = UniversalRegressionPipeline(target_column='sales', drop_cols=['Day'])
+
+# Usage B: A Housing Dataset (No date column)
+housing_pipe = UniversalRegressionPipeline(target_column='price')
 ```
